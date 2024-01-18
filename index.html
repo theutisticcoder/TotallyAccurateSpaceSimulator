@@ -123,6 +123,15 @@ var roty = 0;
                     chek = true;
                     requestAnimationFrame(move);
                 }
+            
+            if (chek == false) {
+                setTimeout(check, 100);
+            }
+
+        }
+        check();
+        function move2(){
+            if(gp){
                 if (navigator.getGamepads()[0].axes[0] > 0.1) {
                     rotx -=3;
                     document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
@@ -141,12 +150,9 @@ var roty = 0;
                     document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
             }
-            if (chek == false) {
-                setTimeout(check, 100);
-            }
-
+            setTimeout(move2, 1000)
         }
-        check();
+            move2();
     </script>
 </body>
 
