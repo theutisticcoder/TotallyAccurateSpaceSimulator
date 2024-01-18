@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totally Accurate Space Simulator</title>
+
+</head>
+
+<body>
+    <style>
+    </style>
+    <div style="perspective: 1600px;" id="spacediv">
+        <div id="space" style="position:absolute; translate: 0px 0px 1200px; transform-style: preserve-3d; width: 1000px; height: 1000px">
+            <div id="spacefront"
+                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px 500px;">
+            </div>
+            <div id="spaceback"
+                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px -500px;">
+            </div>
+            <div id="spaceright"
+                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 0 1 0 -90deg; translate: 500px 0px 0px;">
+            </div>
+            <div id="spaceleft"
+                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 0 1 0 90deg; translate: -500px 0px 0px;">
+            </div>
+            <div id="spacetop"
+                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 1 0 0 -90deg; translate: 0px -500px 0px;">
+            </div>
+            <div id="spacebottom"
+                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 1 0 0 90deg; translate: 0px 500px 0px;">
+            </div>
+        </div>
+    </div>  
+    
+    <div id="pipe" style="perspective: 600px; position: absolute; transform-style: preserve-3d;">
+        <canvas style="height: 100vh; width: 100vw; position: absolute; z-index: 100;"></canvas>
+    </div>
+    <script>
+        var chek = false;
+        var coins = 0;
+        var a = 0;
+        var b = 30;
+        var c = 0;
+        var d = 0;
+        var canvas = document.querySelector("canvas")
+        var ctx = canvas.getContext("2d");
+        var modifier = 0.2;
+        var gp;
+        var img = new Image(canvas.width, canvas.height);
+        window.addEventListener("gamepadconnected", (e) => {
+            gp = navigator.getGamepads()[0];
+        });
+        function move() {
+            a++;
+            if (a < 10) {
+                img.src = "./000" + a + ".png";
+                img.onload = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    setTimeout(() => {
+                        requestAnimationFrame(move);
+                    }, 150);
+                }
+            }
+            else if (a < 37) {
+                img.src = "./00" + a + ".png";
+                img.onload = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    setTimeout(() => {
+                        requestAnimationFrame(move);
+                    }, 150);
+                }
+            }
+            else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                setTimeout(() => {
+                    img.src = "./0001.png";
+                    img.onload = () => {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    }
+                    chek = false;
+                    setTimeout(check, 100);
+                }, 6000)
+
+            }
+        }
+var rotx = 0;
+var roty = 0;
+        document.onkeydown = (e) => {
+            if (e.key == "ArrowUp") {
+                a = 1;
+                b++;
+                requestAnimationFrame(move);
+                
+
+            }
+        
+            if (e.key == "d") {
+                rotx -=3;
+                document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                }
+                if (e.key == "a") {
+                    rotx +=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                }
+                if (e.key == "w") {
+                    roty -=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                }
+                if (e.key == "s") {
+                    roty +=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                }
+        }
+        function check() {
+            if (gp) {
+                if (navigator.getGamepads()[0].axes[3] > 0.1) {
+                    a = 0;
+                    chek = true;
+                    requestAnimationFrame(move);
+                }
+                if (navigator.getGamepads()[0].axes[0] > 0.1) {
+                    rotx -=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                
+                }
+                if (navigator.getGamepads()[0].axes[0] < -0.1) {
+                    rotx +=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                                }
+                if (navigator.getGamepads()[0].axes[1] > 0.1) {
+                    roty -=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                                }
+                if (navigator.getGamepads()[0].axes[1] < -0.1) {
+                    roty +=3;
+                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                                }
+            }
+            if (chek == false) {
+                setTimeout(check, 100);
+            }
+
+        }
+        check();
+    </script>
+</body>
+
+</html>
