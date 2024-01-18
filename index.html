@@ -12,7 +12,7 @@
     <style>
     </style>
     <div style="perspective: 1600px;" id="spacediv">
-        <div id="space" style="position:absolute; translate: 0px 0px 1200px; transform-style: preserve-3d; width: 1000px; height: 1000px">
+        <div id="space" style="position:absolute; transform-style: preserve-3d; width: 1000px; height: 1000px">
             <div id="spacefront"
                 style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px 500px;">
             </div>
@@ -101,19 +101,19 @@ var roty = 0;
         
             if (e.key == "d") {
                 rotx -=3;
-                document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
                 if (e.key == "a") {
                     rotx +=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
                 if (e.key == "w") {
                     roty -=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
                 if (e.key == "s") {
                     roty +=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
         }
         function check() {
@@ -125,20 +125,20 @@ var roty = 0;
                 }
                 if (navigator.getGamepads()[0].axes[0] > 0.1) {
                     rotx -=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 
                 }
                 if (navigator.getGamepads()[0].axes[0] < -0.1) {
                     rotx +=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
                 if (navigator.getGamepads()[0].axes[1] > 0.1) {
                     roty -=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
                 if (navigator.getGamepads()[0].axes[1] < -0.1) {
                     roty +=3;
-                    document.getElementById("space").style.transform = "rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
             }
             if (chek == false) {
