@@ -11,25 +11,25 @@
 <body>
     <style>
     </style>
-    <div style="perspective: 1400px;" id="spacediv">
-        <div id="space" style="position:absolute; transform-style: preserve-3d; width: 1000px; height: 1000px">
+    <div style="perspective: 800px;" id="spacediv">
+        <div id="space" style="perspective: 800px;position:absolute; transform-style: preserve-3d; width: 500px; height: 500px">
             <div id="spacefront"
-                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px 500px;">
+                style="transform-style: preserve-3d;height: 500px; width: 500px; background-repeat: no-repeat; background-size: 500px 500px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px 500px;">
             </div>
             <div id="spaceback"
-                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px -500px;">
+                style="transform-style: preserve-3d;height: 500px; width: 500px; background-repeat: no-repeat; background-size: 500px 500px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; translate: 0px 0px -500px;">
             </div>
             <div id="spaceright"
-                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 0 1 0 -90deg; translate: 500px 0px 0px;">
+                style="transform-style: preserve-3d;height: 500px; width: 500px; background-repeat: no-repeat; background-size: 500px 500px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 0 1 0 -90deg; translate: 500px 0px 0px;">
             </div>
             <div id="spaceleft"
-                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 0 1 0 90deg; translate: -500px 0px 0px;">
+                style="transform-style: preserve-3d;height: 500px; width: 500px; background-repeat: no-repeat; background-size: 500px 500px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 0 1 0 90deg; translate: -500px 0px 0px;">
             </div>
             <div id="spacetop"
-                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 1 0 0 -90deg; translate: 0px -500px 0px;">
+                style="transform-style: preserve-3d;height: 500px; width: 500px; background-repeat: no-repeat; background-size: 500px 500px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 1 0 0 -90deg; translate: 0px -500px 0px;">
             </div>
             <div id="spacebottom"
-                style="transform-style: preserve-3d;height: 1000px; width: 1000px; background-repeat: no-repeat; background-size: 1000px 1000px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 1 0 0 90deg; translate: 0px 500px 0px;">
+                style="transform-style: preserve-3d;height: 500px; width: 500px; background-repeat: no-repeat; background-size: 500px 500px;  background: url(https://images-assets.nasa.gov/image/PIA14417/PIA14417~orig.jpg);position: absolute; rotate: 1 0 0 90deg; translate: 0px 500px 0px;">
             </div>
         </div>
     </div>  
@@ -101,19 +101,19 @@ var roty = 0;
         
             if (e.key == "d") {
                 rotx -=3;
-                document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
                 if (e.key == "a") {
                     rotx +=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
                 if (e.key == "w") {
                     roty -=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
                 if (e.key == "s") {
                     roty +=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 }
         }
         function check() {
@@ -125,20 +125,20 @@ var roty = 0;
                 }
                 if (navigator.getGamepads()[0].axes[0] > 0.1) {
                     rotx -=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                 
                 }
                 if (navigator.getGamepads()[0].axes[0] < -0.1) {
                     rotx +=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
                 if (navigator.getGamepads()[0].axes[1] > 0.1) {
                     roty -=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
                 if (navigator.getGamepads()[0].axes[1] < -0.1) {
                     roty +=3;
-                    document.getElementById("space").style.transform = "translateZ(1200px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
+                    document.getElementById("space").style.transform = "translateZ(600px) rotateY("+ rotx + "deg) rotateX("+ roty + "deg)"
                                 }
             }
             if (chek == false) {
